@@ -8,7 +8,8 @@ sources used in Enhanced Due Diligence (EDD) reviews.
 
 Each evidence record identifies its source, records when it was checked,
 documents its provenance and limitations, and links it to a specific
-claim using `claim_reference`.
+claim using `claim_reference`. An optional `finding_reference` links the
+record to a finding in G4F-EDD-001 without changing existing records.
 
 All five examples are fictional test fixtures. They are not real sources,
 citations, companies, findings or allegations.
@@ -26,6 +27,7 @@ citations, companies, findings or allegations.
 |---|---|
 | evidence_id | Unique evidence record identifier |
 | claim_reference | Identifier of the claim associated with the evidence |
+| finding_reference | Optional G4F-EDD-001 `finding_id` associated with the evidence |
 | title | Source title or descriptive placeholder |
 | publisher | Publisher, author or issuing organization |
 | url | Source URL, if available |
@@ -44,17 +46,24 @@ citations, companies, findings or allegations.
 
 `claim_reference` identifies the claim to which an evidence record
 relates. It is not the claim itself and does not establish that the
-claim is true.
+claim is true. `finding_reference` is an optional link to a case finding
+whose `finding_id` follows the G4F-EDD-001 format (`F-` followed by at
+least three digits). The two identifiers serve different purposes; do
+not substitute one for the other. Existing records remain valid without
+`finding_reference`.
 
 Example:
 
     {
       "evidence_id": "EDD-EV-001",
-      "claim_reference": "CLAIM-001"
+      "claim_reference": "CLAIM-001",
+      "finding_reference": "F-001"
     }
 
 In an actual EDD case, `CLAIM-001` should correspond to a claim recorded
-in the case findings or another documented claim register.
+in the case findings or another documented claim register. When the
+claim is represented by a G4F-EDD-001 finding, optionally record that
+finding's ID in `finding_reference`.
 
 Multiple evidence records may refer to the same claim. This allows an
 analyst to compare supporting, conflicting or incomplete evidence.

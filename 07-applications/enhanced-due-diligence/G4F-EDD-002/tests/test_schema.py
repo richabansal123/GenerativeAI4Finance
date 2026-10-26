@@ -86,6 +86,19 @@ class TestEvidenceSchema(unittest.TestCase):
 
         self.assert_record_invalid(record)
 
+    def test_finding_reference_is_optional_and_uses_edd001_format(self):
+        record = self.load_example("02_news_report.json")
+        self.assert_record_valid(record)
+
+        record["finding_reference"] = "F-123"
+        self.assert_record_valid(record)
+
+        record["finding_reference"] = "CLAIM-123"
+        self.assert_record_invalid(record)
+
+        record["finding_reference"] = "F-12"
+        self.assert_record_invalid(record)
+
     def test_invalid_source_classification_is_rejected(self):
         record = self.load_example("01_official_record.json")
         record["source_classification"] = ["unverified"]

@@ -2,6 +2,7 @@
 {
   "evidence_id": "EDD-EV-001",
   "claim_reference": "CLAIM-001",
+  "finding_reference": "F-001",
   "title": "Fictional Company Registration Extract",
   "publisher": "Example Corporate Registry",
   "url": "https://example.com/fictional-registry-extract",

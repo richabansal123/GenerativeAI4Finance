@@ -36,6 +36,11 @@
       "pattern": "^CLAIM-[0-9]{3,}$",
       "description": "Identifier of the specific claim this evidence record relates to. The claim should be documented separately in the EDD case findings."
     },
+    "finding_reference": {
+      "type": "string",
+      "pattern": "^F-[0-9]{3,}$",
+      "description": "Optional identifier of a related finding in G4F-EDD-001, matching its finding_id. Keep this separate from claim_reference."
+    },
     "title": {
       "type": "string",
       "minLength": 1,
